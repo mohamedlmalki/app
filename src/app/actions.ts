@@ -20,7 +20,7 @@ export async function createAction(formData: FormData) {
   const { userId, orgId } = auth();
 
   // Creation disabled for demo
-
+  if ( userId !== process.env.ME_ID ) return;
   if (!userId) {
     return;
   }
@@ -59,7 +59,7 @@ export async function createAction(formData: FormData) {
     });
 
   await resend.emails.send({
-    from: "Space Jelly <info@email.alfa-shop.org>",
+    from: "Space Jelly <info@test.spacejelly.dev>",
     to: [email],
     subject: "You Have a New Invoice",
     react: InvoiceCreatedEmail({ invoiceId: results[0].id }),
@@ -72,7 +72,7 @@ export async function updateStatusAction(formData: FormData) {
   const { userId, orgId } = auth();
 
   // Updating disabled for demo
-
+  if ( userId !== process.env.ME_ID ) return;
   if (!userId) {
     return;
   }
@@ -110,7 +110,7 @@ export async function deleteInvoiceAction(formData: FormData) {
   const { userId, orgId } = auth();
 
   // Deleting disabled for demo
-
+  if ( userId !== process.env.ME_ID ) return;
   if (!userId) {
     return;
   }
@@ -143,7 +143,8 @@ export async function deleteInvoiceAction(formData: FormData) {
 
 export async function createPayment(formData: FormData) {
   // Payments disabled for demo
-
+  const { userId } = auth();
+  if ( userId !== process.env.ME_ID ) return;
   const headersList = headers();
   const origin = headersList.get("origin");
   const id = Number.parseInt(formData.get("id") as string);
