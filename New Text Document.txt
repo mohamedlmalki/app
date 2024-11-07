@@ -1,0 +1,9 @@
+PostgreSQL endpoint
+postgresql://vp26om:xau_9A9mMxe2Oy5Y2m2SO9veUUvO6cLoZBbF0@us-east-1.sql.xata.sh/my-invoicing-app:main?sslmode=require
+
+HTTP endpoint
+https://mohamedlmalki-s-workspace-vp26om.us-east-1.xata.sh/db/my-invoicing-app:main
+
+API key
+xau_9A9mMxe2Oy5Y2m2SO9veUUvO6cLoZBbF0
+
